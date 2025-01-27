@@ -12,9 +12,7 @@ Hello and welcome to my projects showcase! My name is Alessandro Landi and I'm a
 
 ### 910x Turning Point World's Robot
 
-<img src="assets/img/910Auton.gif" height="200"> 
-<img src="assets/img/IMG_1151.gif" height="200"> 
-<img src="assets/img/IMG_1181.gif" height="200">
+<img src="assets/img/910Auton.gif" width="100%"> 
 
 This robot was the culmination of my teammate and I's development during the VRC Turning Point season. The objective of the game was to build a robot capable of targetting flags, manipulating caps, and navigating field obstacles. We created a platform featuring a single flywheel paired with a roller and scraper combo to accomplish these objectives efficiently.
 
@@ -83,3 +81,5 @@ Our full implementations along with the rest of the necessary source code can be
 
 Throughout the season, we achieved remarkable success, winning 4 out of 5 of the regional tournaments we attended, claiming victory at the Florida State Championship, and finishing as Division Finalists at the World Championship.
 
+<img src="assets/img/IMG_1151.gif" width="100%"> 
+<img src="assets/img/IMG_1181.gif" width="100%">
