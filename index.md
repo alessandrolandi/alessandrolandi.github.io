@@ -14,9 +14,9 @@ Hello and welcome to my projects showcase! My name is Alessandro Landi and I'm a
 
 <img src="assets/img/910Auton.gif" width="100%"> 
 
-This robot was the culmination of my teammate and I's development during the VRC Turning Point season. The objective of the game was to build a robot capable of targetting flags, manipulating caps, and navigating field obstacles. We created a platform featuring a single flywheel paired with a roller and scraper combo to accomplish these objectives efficiently.
+I founded a VRC team that competed during Turning Point. The objective of Turning Point was to build a robot capable of targetting flags, manipulating caps, and navigating field obstacles. We designed and built a robot that featured a single flywheel paired with a roller and scraper combo to accomplish these objectives efficiently.
 
-Each match consisted of two periods: an autonomous period, during which each team executed pre-programmed instructions to score as many points as possible, and a driver control period. 
+Each match consisted of two periods: an autonomous period during which each team executed a set of programmed instructions to score as many points as possible, and a driver control period. 
 
 To maximize our robot's performance during the autonomous period, we implemented:
 
@@ -58,7 +58,7 @@ int PID(Pid * pid, double setPoint, double Sensor){
 and a modified I-controller called [TBH](https://wiki.purduesigbots.com/software/control-algorithms/take-back-half-tbh-controller) for the flywheel.
 
 ```c++
-void tbh() {
+void TBH() {
   fwError = targetVel - avgFlywheelEnc();
   output += gain * fwError;
   if(abs(fwError) / fwError != abs(previousFwError) / previousFwError) {
@@ -79,7 +79,7 @@ void tbh() {
 ```
 Our full implementations along with the rest of the necessary source code can be found in [this GitHub repository.](https://github.com/alessandrolandi/910x-vrc-tp-worlds)
 
-Throughout the season, we achieved remarkable success, winning 4 out of 5 of the regional tournaments we attended, claiming victory at the Florida State Championship, and finishing as Division Finalists at the World Championship.
+Throughout the season, we achieved remarkable success, winning 4 out of 5 of the regional tournaments we attended, claiming victory at the Florida State Championship, and finishing as a Division Finalist at the World Championship (losing only to the eventual World Champion).
 
 <img src="assets/img/IMG_1151.gif" width="100%"> 
 <img src="assets/img/IMG_1181.gif" width="100%">
