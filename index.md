@@ -14,7 +14,7 @@ Hello and welcome to my projects showcase! My name is Alessandro Landi and I'm a
 
 <img src="assets/img/910Auton.gif" width="100%"> 
 
-I founded a VRC team that competed during Turning Point. The objective of Turning Point was to build a robot capable of targetting flags, manipulating caps, and navigating field obstacles. We designed and built a robot that featured a single flywheel paired with a roller and scraper combo to accomplish these objectives efficiently.
+I founded a VRC team that competed during Turning Point, a game in which the objective was to build a robot capable of targetting flags, manipulating caps, and navigating field obstacles. In order to accomplish these goals efficiently, my team and I designed and built a robot that featured a single flywheel and a roller intake/scraper combo.
 
 Each match consisted of two periods: an autonomous period during which each team executed a set of programmed instructions to score as many points as possible, and a driver control period. 
 
