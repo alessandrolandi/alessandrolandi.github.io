@@ -6,21 +6,51 @@ permalink: /
 
 ## Introduction
 
-Hello and welcome to my projects showcase! My name is Alessandro Landi and I'm an NYU Computer Science graduate and aspiring Software Engineer.
+I'm a Computer Science graduate student at Boston University and NYU CS alumnus.
 
 ***
 
-### 910x Turning Point World's Robot
+### llm-bench
 
-<img src="assets/img/910Auton.gif" width="100%"> 
+*Python, Ollama API* &nbsp;·&nbsp; [GitHub](https://github.com/alessandrolandi/llm-bench)
 
-I founded a VRC team that competed in Turning Point, a robotics competition where teams designed and built robots to target flags, manipulate caps, and navigate field obstacles. To tackle these challenges efficiently, my team and I designed and built a robot featuring a single flywheel (that could target flags from any point in the field) and a roller intake/scraper combo (that could both intake balls and manipulate caps).
+A CLI tool for benchmarking local LLM inference. Measures tokens/sec, time-to-first-token, and prompt processing speed across different models and hardware configurations.
 
-Each match consisted of two periods: an autonomous period during which each team executed a set of programmed instructions to score as many points as possible, and a driver control period. 
+- Warmup runs and multi-run averaging ensure reproducible results
+- Exports to JSON and CSV for cross-hardware comparison and analysis
 
-To maximize our robot's performance during the autonomous period, we implemented:
+***
 
-an s-curve motion profile for the drive
+### Autonomous Room Mapping Drone
+
+*Python, OpenCV, Radio Communication*
+
+Built an autonomous drone system for indoor room mapping using a monocular camera and radio communication. Implemented 3D room reconstruction from a live video feed using computer vision and depth estimation, along with a pathfinding algorithm for autonomous navigation and obstacle avoidance.
+
+***
+
+### GPU-Accelerated DCT Implementations for JPEG Compression
+
+*CUDA, C*
+
+Implemented and benchmarked four Discrete Cosine Transform (DCT) algorithms for JPEG compression on an NVIDIA V100 GPU, analyzing the performance tradeoffs of each approach. Work was benchmarked on a Red Hat OpenShift GPU cluster, with infrastructure findings shared directly with Red Hat engineers.
+
+- Achieved a **12% speedup** using Lee's algorithm with shared memory optimization
+
+***
+
+### 910x Turning Point Worlds Robot
+
+*C++, PROS* &nbsp;·&nbsp; [GitHub](https://github.com/alessandrolandi/910x-vrc-tp-worlds)
+
+<img src="assets/img/910Auton.gif" width="100%">
+
+Turning Point was a VRC robotics season where teams built robots to target flags, flip caps, and park on platforms. Our robot used a single-flywheel launcher and a dual-function roller mechanism that could both collect balls and flip caps.
+
+Each match consisted of an autonomous period — where robots acted entirely on pre-programmed instructions — and a driver-controlled period. Autonomous scoring was worth significant points, so we wrote the motion control from scratch.
+
+For the drivetrain, we used an S-curve profile rather than a linear voltage ramp. Abrupt voltage changes caused the wheels to break traction; sinusoidal shaping smoothed both the acceleration and deceleration phases, giving the robot more consistent travel distances.
+
 ```c++
 //abbreviated snippet of drive code
 if(unitsTraveled < accelUnits)
@@ -29,7 +59,8 @@ else if(unitsLeft < decelUnits)
     baseVoltage = (maxSpeed - 10) * sin(1.5708 * unitsLeft / decelUnits) + 10;
 ```
 
-a PID controller for the scraper
+The cap scraper needed to hit precise angles repeatedly. A PID loop on the scraper motor gave us the closed-loop position control to do that reliably.
+
 ```c++
 int PID(Pid * pid, double setPoint, double Sensor){
   // Calculate error
@@ -55,7 +86,8 @@ int PID(Pid * pid, double setPoint, double Sensor){
   return power;
 }
 ```
-and a modified I-controller called [TBH](https://wiki.purduesigbots.com/software/control-algorithms/take-back-half-tbh-controller) for the flywheel.
+
+Flywheel velocity control required a different approach. Standard PID accumulated integral error during spin-up, causing the wheel to overshoot and oscillate around the target velocity. A [Take Back Half (TBH)](https://wiki.purduesigbots.com/software/control-algorithms/take-back-half-tbh-controller) controller addressed this by halving the running total whenever the error changed sign, converging to the setpoint without windup.
 
 ```c++
 void TBH() {
@@ -77,9 +109,10 @@ void TBH() {
   pros::lcd::set_text(5, "front tbh engaged");
 }
 ```
-Our full implementations along with the rest of the necessary source code can be found in [this GitHub repository.](https://github.com/alessandrolandi/910x-vrc-tp-worlds)
 
-Throughout the season, we achieved remarkable success, winning 4 out of 5 of the regional tournaments we attended, claiming victory at the Florida State Championship, and finishing as a Division Finalist at the World Championship (losing only to the eventual World Champion).
+Full source code is on [GitHub.](https://github.com/alessandrolandi/910x-vrc-tp-worlds)
 
-<img src="assets/img/IMG_1151.gif" width="100%"> 
+We won 4 of 5 regional tournaments, won the Florida State Championship, and finished as a Division Finalist at the World Championship.
+
+<img src="assets/img/IMG_1151.gif" width="100%">
 <img src="assets/img/IMG_1181.gif" width="100%">
