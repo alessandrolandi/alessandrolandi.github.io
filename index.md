@@ -35,7 +35,6 @@ Built an autonomous drone system for indoor room mapping using a monocular camer
 
 Implemented and benchmarked four Discrete Cosine Transform (DCT) algorithms for JPEG compression on an NVIDIA V100 GPU, analyzing the performance tradeoffs of each approach. Work was benchmarked on a Red Hat OpenShift GPU cluster, with infrastructure findings shared directly with Red Hat engineers.
 
-- Achieved a **12% speedup** using Lee's algorithm with shared memory optimization
 
 ***
 
@@ -47,7 +46,7 @@ Implemented and benchmarked four Discrete Cosine Transform (DCT) algorithms for 
 
 Turning Point was a VRC robotics season where teams built robots to target flags, flip caps, and park on platforms. Our robot used a single-flywheel launcher and a dual-function roller mechanism that could both collect balls and flip caps.
 
-Each match consisted of an autonomous period — where robots acted entirely on pre-programmed instructions — and a driver-controlled period. Autonomous scoring was worth significant points, so we wrote the motion control from scratch.
+Each match consisted of an autonomous period (where robots acted entirely on pre-programmed instructions) and a driver-controlled period. 
 
 For the drivetrain, we used an S-curve profile rather than a linear voltage ramp. Abrupt voltage changes caused the wheels to break traction; sinusoidal shaping smoothed both the acceleration and deceleration phases, giving the robot more consistent travel distances.
 
